@@ -18,9 +18,9 @@ namespace MinhasTarefasAPI.Models
         public DateTime Criado { get; set; }
         public DateTime  Atualizado { get; set; }
 
-        [ForeignKey("Usuario")]
+        [ForeignKey("Usuario")]//UsuarioId esta vinculado ao meu Objeto Usuario.
         public string UsuarioId { get; set; }
-        public ApplicationUser Usuario { get; set; }
-
+        public virtual ApplicationUser Usuario { get; set; }
+       
     }
 }

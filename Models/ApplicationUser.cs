@@ -11,8 +11,8 @@ namespace MinhasTarefasAPI.Models
     {
         public string FullName { get; set; }
 
-        [ForeignKey("UsuarioId")]
-        public virtual ICollection<Tarefa> Tarefas { get; set; }
+        [ForeignKey("UsuarioId")]//Tarefas esta vinculado ao UsuarioId, da classe Tarefa
+        public virtual IEnumerable<Tarefa> Tarefas { get; set; }
 
     }
 }

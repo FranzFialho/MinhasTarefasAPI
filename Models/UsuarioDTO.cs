@@ -19,7 +19,7 @@ namespace MinhasTarefasAPI.Models
         public string Senha { get; set; }
 
         [Required]
-        [Compare("Senha")]
+        [Compare("Senha")]// Irá comparar se ConfirmacaoSenha é igual a Senha.
         public string ConfirmacaoSenha  { get; set; }
 
     }
