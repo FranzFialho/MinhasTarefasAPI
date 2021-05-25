@@ -2,7 +2,7 @@
 
 namespace MinhasTarefasAPI.Repositories.Contracts
 {
-    interface IUsuarioRepository
+    public interface IUsuarioRepository
     {
 
         void Cadastrar(ApplicationUser usuario, string senha);
