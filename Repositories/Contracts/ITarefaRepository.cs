@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace MinhasTarefasAPI.Repositories.Contracts
 {
-    interface ITarefaRepository
+    public interface ITarefaRepository
     {
 
         List<Tarefa> Sincronizacao(List<Tarefa> tarefas);
