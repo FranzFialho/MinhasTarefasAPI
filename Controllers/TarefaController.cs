@@ -7,6 +7,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using MinhasTarefasAPI.Models;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Authorization;
 
 namespace MinhasTarefasAPI.Controllers
 {
@@ -22,11 +23,21 @@ namespace MinhasTarefasAPI.Controllers
             _userManager = userManager;
         }
 
+        [Authorize]
+        [HttpPost("sincronizar")]
         public ActionResult Sincronizar([FromBody] List<Tarefa> tarefas)
         {
             return Ok(_tarefaRepository.Sincronizacao(tarefas));
         }
 
+        [HttpGet("modelo")]
+        public ActionResult Modelo()
+        {
+            return Ok(new Tarefa());
+        }
+
+        [Authorize]
+        [HttpGet("restaurar")]
         public ActionResult Restaurar(DateTime data)
         {
             var usuario = _userManager.GetUserAsync(HttpContext.User).Result;

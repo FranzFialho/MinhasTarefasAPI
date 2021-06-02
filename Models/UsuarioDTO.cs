@@ -7,11 +7,11 @@ namespace MinhasTarefasAPI.Models
         [Required(ErrorMessage ="Nome Obrigatório")]
         public string Nome { get; set; }
 
-        [Required]
-        [EmailAddress(ErrorMessage ="Email Inválido")]
+        [Required(ErrorMessage = "Email obrigatório")]
+        [EmailAddress]
         public string Email { get; set; }
 
-        [Required]  
+        [Required(ErrorMessage = "Senha obrigatória")]  
         public string Senha { get; set; }
 
         [Required]

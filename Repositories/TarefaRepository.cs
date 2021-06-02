@@ -33,9 +33,10 @@ namespace MinhasTarefasAPI.Repositories
         public List<Tarefa> Sincronizacao(List<Tarefa> tarefas)
         {
 
-            var TarefasNovas = tarefas.Where(a => a.IdTarefaApi == 0);
+            var TarefasNovas = tarefas.Where(a => a.IdTarefaApi == 0).ToList();
+            var TarefasExcluidasAtualizadas = tarefas.Where(a => a.IdTarefaApi != 0).ToList();
             //Cadastrar Novos Registros
-            if(TarefasNovas.Count() > 0)
+            if (TarefasNovas.Count() > 0)
             {
                 foreach(var tarefa in TarefasNovas)
                 {
@@ -43,7 +44,7 @@ namespace MinhasTarefasAPI.Repositories
                 }
             }
 
-            var TarefasExcluidasAtualizadas = tarefas.Where(a => a.IdTarefaApi != 0);
+            
             //Atualização de registro ( Excluido )
             if (TarefasExcluidasAtualizadas.Count() > 0)
             {
